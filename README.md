@@ -7,7 +7,7 @@
 ## Setup and run with Docker
 
 ```docker
-docker build -t job-tracker:datacord .
+docker build -t datacord-job-tracker:latest .
 ```
 
 ```docker
@@ -21,5 +21,5 @@ docker run \
 -e DB_URL='./db/job.db' \
 --mount type=volume,src=datacord-job-tracker,target=/job-tracker/db \
 --name job-tracker \
-job-tracker:datacord
+datacord-job-tracker:latest
 ```
