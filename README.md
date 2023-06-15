@@ -7,6 +7,10 @@
 ## Setup and run with Docker
 
 ```docker
+docker build -t job-tracker:datacord .
+```
+
+```docker
 docker volume create datacord-job-tracker
 ```
 
