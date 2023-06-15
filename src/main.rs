@@ -9,14 +9,14 @@ use crate::{
 use dotenv::dotenv;
 use models::GreenHouseResponse;
 use rusqlite::{Connection, Result};
-use std::collections::HashMap;
+use std::{collections::HashMap, env};
 use tokio::main;
 
 #[main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     dotenv().ok();
 
-    let connection = Connection::open("job.db")?;
+    let connection = Connection::open(env::var("DB_URL").expect("missing DB_URL in .env"))?;
     connection.execute(
         "CREATE TABLE IF NOT EXISTS jobs (id INTEGER PRIMARY KEY, title TEXT, removed BOOLEAN)",
         (),
